@@ -78,7 +78,6 @@ GDRIVE_ID = "1FTYTixuC2dtems0B5wRzVy-P0BchZbbY"  # your file ID
 URL = f"https://drive.google.com/uc?id={GDRIVE_ID}"
 
 if not os.path.exists(MODEL_PATH):
-    st.text("Downloading model from Google Drive...")
     gdown.download(URL, MODEL_PATH, quiet=False)
 
 # -----------------------------
@@ -185,3 +184,4 @@ if uploaded_file is not None:
         cam_image = show_cam_on_image(rgb_img, grayscale_cam, use_rgb=True)
 
         st.image(cam_image, caption=f"Grad-CAM Overlay\nPredicted: {'Pneumonia' if predicted_class==1 else 'Normal'} ({prob:.2f})", use_container_width=True)
+
